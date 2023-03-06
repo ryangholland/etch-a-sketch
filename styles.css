@@ -88,8 +88,11 @@ body {
   padding: 0.5rem;
 }
 
-#options-right div {
+#options-color-header {
+  font-weight: bold;
   text-align: center;
+  font-size: 1.15rem;
+  text-decoration: underline;
 }
 
 #options-list {

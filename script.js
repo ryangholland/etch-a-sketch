@@ -26,13 +26,15 @@ function clearChildren(parent) {
   }
 }
 
-sizeBtn.addEventListener("click", () => {
+function resizeGrid() {
   clearChildren(container);
   let squareCount = prompt("Squares per row:");
   if (squareCount < 2 || squareCount > 100)
     squareCount = prompt("Squares per row:");
   let newSize = 800 / squareCount;
   drawGrid(squareCount, newSize);
-});
+}
+
+sizeBtn.addEventListener("click", resizeGrid);
 
 drawGrid(16, 50);
