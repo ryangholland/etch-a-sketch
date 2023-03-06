@@ -74,3 +74,25 @@ body {
 .filled {
   background-color: black;
 }
+
+#options-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+#options-right {
+  border: solid 1px black;
+  padding: 0.5rem;
+}
+
+#options-right div {
+  text-align: center;
+}
+
+#options-list {
+  display: flex;
+  gap: 0.5rem;
+}
