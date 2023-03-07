@@ -67,9 +67,7 @@ body {
   display: flex;
 }
 
-.square {
-  border: solid 1px black;
-}
+
 
 .filled {
   background-color: black;
