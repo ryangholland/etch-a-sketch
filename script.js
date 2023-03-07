@@ -18,6 +18,16 @@ function drawGrid(squares, size) {
         if (colorChoice === "random") {
           e.target.style.backgroundColor = `rgb(${getRandomRGB()}, ${getRandomRGB()}, ${getRandomRGB()})`;
         }
+        if (colorChoice === "shaded") {
+          if (!e.target.style.backgroundColor) {
+            e.target.style.backgroundColor = "rgb(230, 230, 230)";
+            return;
+          }
+
+          let currentShade = e.target.style.backgroundColor.slice(4, 7);
+          let newShade = Math.floor(currentShade - 25);
+          e.target.style.backgroundColor = `rgb(${newShade}, ${newShade}, ${newShade})`;
+        }
       });
 
       newRow.append(newSquare);
