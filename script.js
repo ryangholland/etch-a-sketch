@@ -11,7 +11,13 @@ function drawGrid(squares, size) {
       newSquare.style.height = `${size}px`;
       newSquare.style.width = `${size}px`;
       newSquare.addEventListener("mouseover", (e) => {
-        e.target.classList.add("filled");
+        let colorChoice = getColor();
+        if (colorChoice === "black") {
+          e.target.classList.add("filled");
+        }
+        if (colorChoice === "random") {
+          e.target.style.backgroundColor = `rgb(${getRandomRGB()}, ${getRandomRGB()}, ${getRandomRGB()})`;
+        }
       });
 
       newRow.append(newSquare);
@@ -26,6 +32,12 @@ function clearChildren(parent) {
   }
 }
 
+function getRandomRGB() {
+  min = 0;
+  max = 255;
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
 function resizeGrid() {
   clearChildren(container);
   let squareCount = prompt("Squares per row:");
@@ -33,6 +45,15 @@ function resizeGrid() {
     squareCount = prompt("Squares per row:");
   let newSize = 800 / squareCount;
   drawGrid(squareCount, newSize);
+}
+
+function getColor() {
+  let blackButton = document.getElementById("black");
+  let randomButton = document.getElementById("random");
+  let shadedButton = document.getElementById("shaded");
+  if (blackButton.checked) return "black";
+  if (randomButton.checked) return "random";
+  if (shadedButton.checked) return "shaded";
 }
 
 sizeBtn.addEventListener("click", resizeGrid);
